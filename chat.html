@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Bot</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7fc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        /* Chat Text Area */
+        #Texts {
+            font-family: Arial, sans-serif;
+            border: 1px solid #ddd;
+            padding: 20px;
+            width: 350px;
+            height: 300px;
+            background-color: #fff;
+            overflow-y: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        /* Input field */
+        input[type="text"] {
+            width: 250px;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            font-size: 1rem;
+            margin-right: 10px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus {
+            border-color: #000000;
+        }
+
+        /* Button Styles */
+        button {
+            padding: 12px 18px;
+            background-color: #010730;
+            color: white;
+            font-size: 1rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #2a00fe;
+        }
+
+        button:active {
+            background-color: #1b0049;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 600px) {
+            #Texts {
+                width: 90%;
+            }
+
+            input[type="text"], button {
+                width: 80%;
+                margin: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <h1>Chat Bot</h1>
+
+    <div id="Texts"></div>
+
+    <div style="display: flex; justify-content: center; align-items: center;">
+        <input type="text" id="input" placeholder="Type your message...">
+        <button onclick="Chat()">Send</button>
+    </div>
+
+    <script>
+        function Chat() {
+            let input = document.getElementById("input").value;
+            if (input) {
+                // Append new message to chat box
+                document.getElementById("Texts").innerHTML += `<p><strong>You:</strong> ${input}</p>`;
+                // Clear the input field after sending
+                document.getElementById("input").value = ''; 
+            }
+        }
+    </script>
+</body>
+</html>

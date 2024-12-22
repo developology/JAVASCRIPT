@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riddhi Temperature Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: 80%;
+            margin-bottom: 15px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #000000;
+        }
+
+        button {
+            background-color: #4a2e00;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #b78c00;
+        }
+
+        h4 {
+            font-size: 1.5rem;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .footer {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Temperature Converter</h1>
+        <h3>Enter Celsius Value:</h3>
+        <input type="text" name="temp1" id="CelsiusInput">
+        <br>
+        <button id="Convert" onclick="Convert()">Get Fahrenheit Value</button>
+        <h3>Your Fahrenheit Value is:</h3>
+        <h4 id="FahrenheitValue"></h4>
+    </div>
+
+    <script>
+        function Convert() {
+            CelsiusInput = Number(document.getElementById("CelsiusInput").value);
+            if (isNaN(CelsiusInput)) {
+                alert("Please enter a valid number!");
+                return;
+            }
+            FahrenheitValue = Math.round(CelsiusInput * (9 / 5)) + 32;
+            document.getElementById("FahrenheitValue").innerHTML = FahrenheitValue + " °F";
+        }
+    </script>
+</body>
+</html>
