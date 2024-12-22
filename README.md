@@ -16,6 +16,10 @@ Simple layout with minimal styling.
 Celsius and Fahrenheit values displayed with their respective units (°C, °F).
 
 
+![image](https://github.com/user-attachments/assets/81681302-fe71-4fce-8427-0fd77a8c4c70)
+
+
+
 2. Chat Bot:
 
 
@@ -32,4 +36,5 @@ Input field is cleared after sending the message.
 Design:
 Clean, simple interface with modern styling.
 
+![image](https://github.com/user-attachments/assets/0db3ef35-5c1b-403b-94bb-0bb9c81d0ca0)
 
