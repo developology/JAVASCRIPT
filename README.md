@@ -38,3 +38,13 @@ Clean, simple interface with modern styling.
 
 ![image](https://github.com/user-attachments/assets/0db3ef35-5c1b-403b-94bb-0bb9c81d0ca0)
 
+3. Palindrome Checker
+
+
+Purpose: To check whether a word and its revered word is same or not.
+
+Output: Eg. "WOW" when spelled reversed.. its the same so its an palindrome.
+
+![image](https://github.com/user-attachments/assets/9474cd36-9636-48f9-a2c9-ae7a27ab6946)
+
+
