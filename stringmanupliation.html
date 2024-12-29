@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Manipulation Challenge</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to bottom right, #f3f4f6, #d9e2f3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #333;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 650px;
+            text-align: center;
+        }
+
+        h3 {
+            font-size: 1.2em;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: 2px solid #b0bec5;
+            font-size: 1.1em;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        input:focus {
+            border-color: #007BFF;
+            box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+        }
+
+        button {
+            padding: 14px 30px;
+            background-color: #3f1a00;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #000000;
+        }
+
+        .output {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f1f8ff;
+            border-radius: 10px;
+            border: 1px solid #e1ecf4;
+            font-size: 1.1em;
+            color: #333;
+            text-align: left;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .output-title {
+            font-weight: bold;
+            color: #452600;
+            font-size: 1.2em;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px;
+                max-width: 100%;
+            }
+
+            button {
+                font-size: 1em;
+            }
+
+            input {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h3>Enter Text:</h3>
+        <input type="text" id="TEXT" placeholder="Type your text here...">
+        <button onclick="Count()">Analyze Results</button>
+
+        <div class="output" id="Chars"></div>
+        <div class="output" id="Word"></div>
+        <div class="output" id="Vowels"></div>
+        <div class="output" id="Palindrome"></div>
+        <div class="output" id="Uppercase"></div>
+        <div class="output" id="Lowercase"></div>
+        <div class="output" id="Captial"></div>
+    </div>
+
+    <script>
+        function Count() {
+            const TEXT = document.getElementById("TEXT").value.trim();
+
+            // Count characters
+            const TOTALCHARS = TEXT.length;
+            document.getElementById("Chars").innerHTML = `<span class="output-title">Total Characters:</span> ${TOTALCHARS}`;
+
+            // Count words
+            const TOTALWORDS = TEXT.split(/\s+/).length;
+            document.getElementById("Word").innerHTML = `<span class="output-title">Total Words:</span> ${TOTALWORDS}`;
+
+            // Count vowels
+            const vowels = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"];
+            let vowelCount = 0;
+            for (let i = 0; i < TEXT.length; i++) {
+                if (vowels.includes(TEXT[i])) {
+                    vowelCount++;
+                }
+            }
+            document.getElementById("Vowels").innerHTML = `<span class="output-title">Total Vowels:</span> ${vowelCount}`;
+
+            // Palindrome check
+            const reverseInput = TEXT.split('').reverse().join('');
+            if (TEXT === reverseInput) {
+                document.getElementById('Palindrome').innerHTML = `<span class="output-title">Palindrome:</span> Yes`;
+            } else {
+                document.getElementById('Palindrome').innerHTML = `<span class="output-title">Palindrome:</span> No :(`;
+            }
+
+            // Uppercase
+            const UpperCaseText = TEXT.toUpperCase();
+            document.getElementById("Uppercase").innerHTML = `<span class="output-title">UpperCase:</span> ${UpperCaseText}`;
+
+            // Lowercase
+            const LowerCaseText = TEXT.toLowerCase();
+            document.getElementById("Lowercase").innerHTML = `<span class="output-title">LowerCase:</span> ${LowerCaseText}`;
+
+            // Capitalize the first letter
+            const firstChar = TEXT.charAt(0).toUpperCase();
+            const restOfTheText = TEXT.slice(1).toLowerCase();
+            document.getElementById("Captial").innerHTML = `<span class="output-title">Capitalized:</span> ${firstChar + restOfTheText}`;
+        }
+    </script>
+
+</body>
+</html>
