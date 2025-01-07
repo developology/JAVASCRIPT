@@ -55,4 +55,10 @@ Purpose:String Concepts of Javascript
 ![image](https://github.com/user-attachments/assets/05e854c5-7408-4a20-ac40-f007e881b8f7)
 
 
+5. Basic Calculation of Employee Salary, HRF, PF and Total Salary
+
+Purpose: Using arrow function 
+
+![image](https://github.com/user-attachments/assets/81a2c6f2-60e0-4c18-9767-176bdc58b2cd)
+
 
