@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Calculation</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Form Container */
+        .container {
+            background: #ffffff;
+            padding: 20px 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h3 {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+
+        input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        input[type="text"]:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Results Section */
+        .results h3 {
+            margin: 10px 0;
+            color: #555;
+            font-size: 16px;
+            font-weight: normal;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h3>Enter Employee Salary:</h3>
+        <input type="text" id="Salary">
+        <button onclick="Calculate()">Calculate</button>
+        <div class="results">
+            <h3 id="HRA"></h3>
+            <h3 id="PF"></h3>
+            <h3 id="TOTAL"></h3>
+        </div>
+    </div>
+   <script>
+
+
+var Calculate= ()=> {
+        var Salary= Number(document.getElementById('Salary').value);
+        var HRA = ((Salary*10)/100);
+        var PF= ((Salary*5)/100);
+        var TOTAL= Salary+HRA+PF;
+
+        document.getElementById('HRA').innerHTML= ("The HRA is: " +HRA);
+        document.getElementById('PF').innerHTML= ("The PF is: " +PF);
+        document.getElementById('TOTAL').innerHTML= ("The Total Salary is: "+TOTAL);
+   
+}
+   </script>
+    
+</body>
+</html>
