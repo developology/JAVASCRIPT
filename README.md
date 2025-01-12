@@ -62,3 +62,11 @@ Purpose: Using arrow function
 ![image](https://github.com/user-attachments/assets/81a2c6f2-60e0-4c18-9767-176bdc58b2cd)
 
 
+6. Bank Transaction for Deposit and removal of Money and maintaining Cash Balance.
+
+Purpose: Arrow function, nested functions 
+
+![image](https://github.com/user-attachments/assets/7f22a8ac-ce3f-4083-a2b4-1aed01082b05)
+
+
+
