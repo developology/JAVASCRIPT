@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Details</title>
+    <style>
+        /* General styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Container styles */
+        .container {
+            background: #ffffff;
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+
+        h3 {
+            font-size: 16px;
+            margin: 10px 0;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 8px 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background: #000000;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 14px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+            margin-right: 10px;
+        }
+
+        button:hover {
+            background: #171717;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 480px) {
+            .container {
+                width: 90%;
+                padding: 15px;
+            }
+
+            h3 {
+                font-size: 14px;
+            }
+
+            button {
+                width: 100%;
+                margin-top: 5px;
+                margin-right: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h3>Account Number: <input type="text" id="account_number"></h3>
+        <h3>Balance: <input type="text" id="balance" value="0"></h3>
+        <button onclick="Deposit()">Deposit</button>
+        <button onclick="Withdraw()">Withdraw</button>
+        <h3 id="Deposit_Value"></h3>
+        <h3 id="WithDraw_Value"></h3>
+        <h3 id="New_Balance"></h3>
+    </div>
+
+    <script>
+        // Deposit Functionality
+        var Deposit = () => {
+            document.getElementById('Deposit_Value').innerHTML = `
+                Deposit Amount: <input type="text" id="Deposit_Amount"> 
+                <br> 
+                <button onclick="proceed()"> Proceed </button>`;
+        };
+
+        function proceed() {
+            const Deposit_Amount = Number(document.getElementById('Deposit_Amount').value);
+            if (isNaN(Deposit_Amount) || Deposit_Amount <= 0) {
+                alert("Please enter a valid deposit amount.");
+                return;
+            }
+         
+            let Balance = Number(document.getElementById('balance').value);
+            Balance += Deposit_Amount;
+            document.getElementById('balance').value = Balance; 
+            document.getElementById('New_Balance').innerHTML = `New Balance: ${Balance}`;
+        }
+
+        // Withdraw Functionality
+        var Withdraw = () => {
+            document.getElementById('WithDraw_Value').innerHTML = `
+                Withdraw Amount: <input type="text" id="WithDraw_Amount"> 
+                <br> 
+                <button onclick="WithDraw_Proceed()"> Proceed </button>`;
+        };
+
+        function WithDraw_Proceed() {
+            const WithDraw_Amount = Number(document.getElementById('WithDraw_Amount').value);
+            if (isNaN(WithDraw_Amount) || WithDraw_Amount <= 0) {
+                alert("Please enter a valid withdrawal amount.");
+                return;
+            }
+
+            let Balance = Number(document.getElementById('balance').value);
+            if (WithDraw_Amount > Balance) {
+                alert("Insufficient balance!");
+                return;
+            }
+            Balance -= WithDraw_Amount;
+            document.getElementById('balance').value = Balance; 
+            document.getElementById('New_Balance').innerHTML = `New Balance: ${Balance}`;
+        }
+    </script>
+
+</body>
+</html>
