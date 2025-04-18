@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billing</title>
+  
+</head>
+<body>
+    <div class="container">
+        <h3> Price: </h3>
+        <input type="number" placeholder="Enter Price" id="price"/>
+    </div>
+    <div class="container2">
+        <h3> GST: </h3>
+        <select id="GST" name="GST">
+            <option value="18">18%</option>
+            <option value="24">24%</option>
+            <option value="36">36%</option>
+    </select>
+    <div class="container">
+        <h3> Quantity: </h3>
+        <input type="number" placeholder="Enter Quantity" id="quantity"/>
+    </div>
+
+    <button onclick="generatebill()"> Result</button>
+    </div>
+    <script src="bill.js"></script>
+</body>
+</html>
