@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Balls</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f7fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            background: #ffffff;
+            margin-top: 50px;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        input[type="number"] {
+            padding: 10px;
+            width: 80%;
+            font-size: 16px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        input[type="number"]:focus {
+            border-color: #007bff;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        #output {
+            margin-top: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .number {
+            font-size: 20px;
+            display: inline-block;
+            padding: 15px;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            line-height: 20px;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+
+        .number:hover {
+            transform: scale(1.1);
+        }
+
+        .even {
+            color: red;
+            border: 3px solid red;
+            background-color: #ffe6e6;
+        }
+
+        .odd {
+            color: blue;
+            border: 3px solid blue;
+            background-color: #e6f0ff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Enter from where you want to start:</h2>
+        <input type="number" id="num1">
+
+        <h2>Enter till where you want to stop:</h2>
+        <input type="number" id="num2">
+
+        <button onclick="show()">Show</button>
+
+        <div id="output"></div>
+    </div>
+
+    <script>
+        function show() {
+            let start = Number(document.getElementById("num1").value);
+            let end = Number(document.getElementById("num2").value);
+            let result = "";
+
+            if (start > end) {
+                for (let i = start; i >= end; i--) {
+                    result += `<span class="number ${i % 2 === 0 ? 'even' : 'odd'}">${i}</span>`;
+                }
+            } else {
+                for (let i = start; i <= end; i++) {
+                    result += `<span class="number ${i % 2 === 0 ? 'even' : 'odd'}">${i}</span>`;
+                }
+            }
+
+            document.getElementById("output").innerHTML = result;
+        }
+    </script>
+</body>
+</html>
