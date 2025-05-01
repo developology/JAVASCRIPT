@@ -1,0 +1,76 @@
+// 1. Write a regex to check if a string contains only uppercase and lowercase letters.
+userInput= prompt("Enter a value: ");
+const onlyletterpattern = /^[a-zA-Z]+$/;
+const result= onlyletterpattern.test(userInput)
+if (result){
+console.log("contains letters only")
+}
+else{
+    console.log("not only letters")
+}
+
+
+
+// 2. Check if a string contains only digits
+userInput= prompt("Enter a value: ");
+const onlydigitpattern= /\d[0-9]/g;
+const result= onlydigitpattern.test(userInput)
+if (result){
+console.log("contains Digits only")
+}
+else{
+    console.log("not only Digits")
+}
+
+
+
+// 3. Match a 10-digit mobile number
+userInput= prompt("Enter phone number: ");
+const mobilepattern = /^\d[0-9]{10}$/g;
+const result= mobilepattern.test(userInput)
+if (result){
+console.log("Valid Mobile Number")
+}
+else{
+    console.log("Invalid Mobile Number")
+}
+
+
+
+// 4. Check for valid email pattern
+userInput= prompt("Enter email ID: ");
+const emailpattern =/\D[a-zA-Z0-9.+-]+\@[a-zA-Z]+\.[a-zA-Z{2,}]/gi;
+const result= emailpattern.test(userInput)
+if (result){
+console.log("Valid Email ID")
+}
+else{
+    console.log("Invalid Email ID")
+}
+
+
+
+// 5. Find all words in a sentence
+userInput= prompt("Enter words: ");
+const wordpattern= /\w[a-zA-Z]/gi;
+const result= userInput.match(wordpattern)
+console.log(result)
+
+
+
+// 6. Match strings starting with "a"
+userInput= prompt("Enter value: ");
+const startwithA = /^a+[a-zA-Z0-9.+]/gi;
+const result= startwithA.test(userInput)
+if (result){
+console.log("Starts with A")
+}
+else{
+    console.log("Doesnt starts with A")
+}
+
+
+
+// 7. Replace all extra spaces in a sentence with one space using regex.
+const spacereducepattern= /\s/g;
+
